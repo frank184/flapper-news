@@ -22,14 +22,6 @@ angular.module('flapperNews')
         })
     }
 
-    Post.upvote = function(post) {
-      return $http
-        .put('/posts/' + post.id + '/upvote.json')
-        .success(function(data) {
-          post.upvotes += 1
-        })
-    }
-
     Post.show = function(id) {
       return $http
         .get('/posts/' + id + '.json')
@@ -38,9 +30,24 @@ angular.module('flapperNews')
         })
     }
 
-    Post.addComment = function(id, comment) {
+    Post.upvote = function(post) {
       return $http
-        .post('/posts/' + id + '/comments.json', comment)
+        .put('/posts/' + post.id + '/upvote.json')
+        .success(function(data) {
+          post.upvotes += 1
+        })
+    }
+
+    Post.addComment = function(id, comment) {
+      return $http.post('/posts/' + id + '/comments.json', comment)
+    }
+
+    Post.upvoteComment = function(post, comment) {
+      return $http
+        .put('/posts/' + post.id + '/comments/' + comment.id + '/upvote.json')
+        .success(function(data) {
+          comment.upvotes += 1
+        })
     }
 
     return Post;
