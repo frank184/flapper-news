@@ -46,3 +46,6 @@ gem 'responders'
 # Rails has csrf protection enabled by default, and Angular isn't sending the token to Rails when we're trying to add a post.
 # This gem enables Rails to automatically send the cookie to Angular and also validate the header when Angular is submitting data
 gem 'angular_rails_csrf'
+
+# Devise
+gem 'devise'
