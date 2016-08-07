@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h3>
+  <h3 style="display:inline">
     <a ng-show="post.link" href="{{post.link}}">
       {{post.title}}
     </a>
@@ -7,16 +7,24 @@
       {{post.title}}
     </span>
   </h3>
+  posted by
+  <a ng-show="post.user.username" ng-href="#/users/{{post.user.username}}">{{post.user.username}}</a>
+  <a ng-hide="post.user.username" ng-href="#/users/{{post.user.email}}">{{post.user.email}}</a>
 </div>
 
-<div ng-repeat="comment in post.comments | orderBy:'-upvotes'">
+<blockquote ng-repeat="comment in post.comments | orderBy:'-upvotes'">
   <span class="glyphicon glyphicon-thumbs-up"
     ng-click="incrementUpvotes(comment)"></span>
-  {{comment.upvotes}} - by {{comment.author}}
-  <span style="font-size:20px; margin-left:10px;">
+  {{comment.upvotes}}
+  <quote style="font-size:20px; margin-left:10px;">
     {{comment.body}}
-  </span>
-</div>
+  </quote>
+  <cite class="pull-right">
+    - by
+    <span ng-show="comment.user.username">{{comment.user.username}}</span>
+    <span ng-hide="comment.user.username">{{comment.user.email}}</span>
+  </cite>
+</blockquote>
 
 <form ng-submit="addComment()"
   style="margin-top:30px;">

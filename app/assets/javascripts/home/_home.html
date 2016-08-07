@@ -17,6 +17,11 @@
   <span>
     <a href="#/posts/{{post.id}}">{{post.comments.length}} Comments</a>
   </span>
+  <span>
+    posted by
+    <a ng-show="post.user.username" ng-href="#/users/{{post.user.username}}">{{post.user.username}}</a>
+    <a ng-hide="post.user.username" ng-href="#/users/{{post.user.email}}">{{post.user.email}}</a>
+  </span>
 </div>
 
 <form ng-submit="addPost()"
