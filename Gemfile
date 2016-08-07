@@ -36,3 +36,4 @@ group :development do
   gem 'spring'
 end
 
+gem 'angular-rails-templates'
