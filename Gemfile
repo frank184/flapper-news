@@ -37,3 +37,8 @@ group :development do
 end
 
 gem 'angular-rails-templates'
+
+# The controller-level `respond_to' feature has been extracted to the `responders` gem.
+# Add it to your Gemfile to continue using this feature: gem 'responders', '~> 2.0'
+# Consult the Rails upgrade guide for details.
+gem 'responders'

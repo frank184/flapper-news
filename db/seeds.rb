@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require 'pp'
+
+posts = [
+  { title: 'Google', link: 'https://www.google.com'},
+  { title: 'Facebook', link: 'https://www.facebook.com'},
+  { title: 'StackOverflow', link: 'https://www.stackoverflow.com'},
+  { title: 'Github', link: 'https://www.github.com'},
+  { title: 'Reddit', link: 'https://www.reddit.com'}
+].each { |post_attributes| pp Post.find_or_create_by(post_attributes) }
