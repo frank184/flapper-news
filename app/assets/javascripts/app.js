@@ -10,7 +10,7 @@ angular.module('flapperNews', ['ui.router', 'templates'])
         controller: 'MainCtrl',
         resolve: {
           postPromise: ['posts', function(posts){
-            return posts.getAll()
+            return posts.index()
           }]
         }
       })

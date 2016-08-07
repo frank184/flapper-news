@@ -42,3 +42,7 @@ gem 'angular-rails-templates'
 # Add it to your Gemfile to continue using this feature: gem 'responders', '~> 2.0'
 # Consult the Rails upgrade guide for details.
 gem 'responders'
+
+# Rails has csrf protection enabled by default, and Angular isn't sending the token to Rails when we're trying to add a post.
+# This gem enables Rails to automatically send the cookie to Angular and also validate the header when Angular is submitting data
+gem 'angular_rails_csrf'
