@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
-  
+
   def create
     post = Post.find(params[:post_id])
     comment = post.comments.create(permitted_comment_params)
-    respond_with comment
+    respond_with comment, location: [:post, :comments]
   end
 
   def upvote
